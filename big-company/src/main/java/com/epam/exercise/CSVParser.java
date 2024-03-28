@@ -3,12 +3,8 @@ package com.epam.exercise;
 import com.epam.exercise.records.CSVEmployee;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -25,7 +21,7 @@ public class CSVParser {
         this.inputStream = inputStream;
     }
 
-    public List<CSVEmployee> loadEmployeesFromCSV() throws IOException {
+    public List<CSVEmployee> loadEmployeesFromCSV() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         return reader.lines()
                 .skip(1)

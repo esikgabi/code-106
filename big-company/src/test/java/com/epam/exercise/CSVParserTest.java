@@ -4,7 +4,6 @@ import com.epam.exercise.records.CSVEmployee;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,10 +17,6 @@ public class CSVParserTest {
 
     private static final String CSV_FILE_PATH = "/test-data.csv";
     private final CSVParser parser = new CSVParser(Objects.requireNonNull(CSVParserTest.class.getResourceAsStream(CSV_FILE_PATH)));
-
-    public CSVParserTest() throws URISyntaxException {
-    }
-
 
     @Test
     public void loadEmployeesFromCSVTest() throws IOException {
