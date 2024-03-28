@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CSVParserTest {
 
     private static final String CSV_FILE_PATH = "/test-data.csv";
-    private final CSVParser parser = new CSVParser(Objects.requireNonNull(CSVParserTest.class.getResource(CSV_FILE_PATH)).toURI());
+    private final CSVParser parser = new CSVParser(Objects.requireNonNull(CSVParserTest.class.getResourceAsStream(CSV_FILE_PATH)));
 
     public CSVParserTest() throws URISyntaxException {
     }

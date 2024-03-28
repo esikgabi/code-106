@@ -5,3 +5,8 @@ Code exercise 106
 Go to the big-company folder and run the following command:
 
 ```mvn clean install```
+
+# Run
+After a success build app can be run via the following command:
+
+```java -jar target/big-company-1.0-SNAPSHOT.jar ```

@@ -58,10 +58,10 @@ public class OrganizationStructureAnalyzerTest {
     @Test
     public void findEmployeesWithHighReportingLineTest(){
         var employeeWithHighReportingLine = analyzer.findEmployeesWithHighReportingLine();
-        assertEquals(2, employeeWithHighReportingLine.size());
+        assertEquals(1, employeeWithHighReportingLine.size());
         assertArrayEquals(employeeWithHighReportingLine.stream()
                 .map(Employee::id)
-                .toArray(), List.of("7", "8").toArray());
+                .toArray(), List.of("8").toArray());
     }
 
 }

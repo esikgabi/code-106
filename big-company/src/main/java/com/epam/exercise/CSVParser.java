@@ -2,24 +2,32 @@ package com.epam.exercise;
 
 import com.epam.exercise.records.CSVEmployee;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+/**
+ * CSV Parser
+ * Responsible for parsing the CSV file and produce CSVEmployee collection
+ */
 public class CSVParser {
 
     private static final String REGEX = ",";
 
-    private final URI fileURI;
+    private final InputStream inputStream;
 
-    public CSVParser(URI fileURI){
-        this.fileURI = fileURI;
+    public CSVParser(InputStream inputStream){
+        this.inputStream = inputStream;
     }
 
     public List<CSVEmployee> loadEmployeesFromCSV() throws IOException {
-        return Files.lines(Paths.get(fileURI))
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        return reader.lines()
                 .skip(1)
                 .map(line -> createEmployee(line.split(REGEX)))
                 .toList();

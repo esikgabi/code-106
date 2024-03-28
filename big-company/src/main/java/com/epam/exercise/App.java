@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /**
  * Main App
- *
+ * Responsible for managing the application running
  */
 public class App {
 
@@ -14,7 +14,7 @@ public class App {
 
     public static void main( String[] args ) throws IOException, URISyntaxException {
 
-        var parser = new CSVParser(Objects.requireNonNull(App.class.getResource(CSV_FILE_PATH)).toURI());
+        var parser = new CSVParser(Objects.requireNonNull(App.class.getResourceAsStream(CSV_FILE_PATH)));
 
         var employees = parser.loadEmployeesFromCSV();
 
@@ -33,7 +33,7 @@ public class App {
         System.out.println("Employees with long reporting line:");
         organizationStructureAnalyzer.findEmployeesWithHighReportingLine()
                 .forEach(employee -> {
-                    System.out.println("Name: "+employee.firstName()+" "+employee.lastName()+", Length of reporting line: "+employee.lengthOfReportingLine());
+                    System.out.println("Name: "+employee.firstName()+" "+employee.lastName()+", Length of reporting line (with the CEO): "+employee.lengthOfReportingLine());
                 });
 
     }

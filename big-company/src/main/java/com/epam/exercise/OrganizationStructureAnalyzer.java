@@ -7,6 +7,10 @@ import com.epam.exercise.records.Manager;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * OrganizationStructureAnalyzer
+ * Responsible for implementing the business requirements related to the organization structure
+ */
 public class OrganizationStructureAnalyzer {
 
     private final List<Employee> employees;
@@ -49,7 +53,7 @@ public class OrganizationStructureAnalyzer {
 
     public List<Employee> findEmployeesWithHighReportingLine(){
         return employees.stream()
-                .filter(e -> e.lengthOfReportingLine() > MAX_MANAGER_LINE_COUNT)
+                .filter(e -> e.lengthOfReportingLine() > MAX_MANAGER_LINE_COUNT+1)
                 .toList();
     }
 
